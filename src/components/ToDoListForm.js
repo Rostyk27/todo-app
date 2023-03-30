@@ -5,7 +5,7 @@ export default function ToDoListForm({ onSubmitForm }) {
         <input
           type="text"
           name="create_list_item"
-          placeholder="I'm going to ..."
+          placeholder="I'm going to..."
         />
       </label>
     </form>

@@ -6,6 +6,28 @@
 }
 *, *:before, *:after {box-sizing: inherit}
 
+article, aside, figure, footer, header, nav, section {display: block}
+button {background: rgba(255, 255, 255, 0); border: medium none}
+ol {list-style-position: inside}
+strong, b {font-weight: 700}
+td {vertical-align: middle}
+table {border-spacing: 0}
+mark {background: none}
+ul {list-style: none}
+
+img {
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: blue;
+  outline: 0 none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
 html, body {margin: 0; height: 100%}
 
 html {
@@ -19,7 +41,7 @@ html {
 
 body {
   color: #000;
-  background-color: #fff;
+  background-color: #f9f9f9;
 }
 
 #root {
@@ -34,10 +56,13 @@ body {
 }
 
 .container {
-  width: 600px;
+  width: 1040px;
   max-width: calc(100% - 48px);
   margin: 0 auto;
   position: relative;
+}
+.container.is_smaller {
+  width: 600px;
 }
 
 .flex {
@@ -46,16 +71,60 @@ body {
   justify-content: space-between;
 }
 
+.material-icons {
+  font-size: inherit;
+}
+
 header {
   padding: 30px 0;
-  background-color: #ccf;
+  margin-bottom: 7vh;
+  background-color: #cfc;
+}
+
+.content h1 {
+  margin-bottom: 3vh;
 }
 
 footer {
   padding: 30px 0;
-  background-color: #cfc;
+  background-color: #cff;
 }
 
 .todo_list__wrapper {
-  margin: 7vh 0;
+  margin-bottom: 7vh;
+}
+
+.todo_list__body {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.todo_list__item {
+  margin: 5px 0;
+}
+
+.todo_list__item__delete {
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.todo_list__item__delete:hover {
+  color: red;
+}
+
+.todo_list__filters {
+  display: flex;
+  margin: 10px -8px;
+}
+
+.todo_list__filter {
+  font-size: 14px;
+  margin: 0 8px;
+}
+
+.todo_list__filter.is_active {
+  border: 1px solid #000;
 }

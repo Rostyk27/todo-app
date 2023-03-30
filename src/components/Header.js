@@ -2,7 +2,7 @@ export default function Header() {
   return (
     <header>
       <div className="container">
-        <span>Todo list</span>
+        <span>Fancy todo list 😎</span>
       </div>
     </header>
   );
