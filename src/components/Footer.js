@@ -1,7 +1,9 @@
 export default function Footer() {
   return (
     <footer>
-      <div className="container">I'm footer!</div>
+      <div className="container">
+        <small>Todo app made with React</small>
+      </div>
     </footer>
   );
 }

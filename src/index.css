@@ -31,11 +31,10 @@ body {
 #main {
   flex: 1 0 auto;
   overflow: hidden;
-  margin-top: 80px;
 }
 
 .container {
-  width: 1200px;
+  width: 600px;
   max-width: calc(100% - 48px);
   margin: 0 auto;
   position: relative;
@@ -48,17 +47,15 @@ body {
 }
 
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9;
-}
-
-.header__container {
-  height: 80px;
+  padding: 30px 0;
+  background-color: #ccf;
 }
 
 footer {
   padding: 30px 0;
+  background-color: #cfc;
+}
+
+.todo_list__wrapper {
+  margin: 7vh 0;
 }
