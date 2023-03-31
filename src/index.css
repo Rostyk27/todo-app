@@ -7,24 +7,27 @@
 *, *:before, *:after {box-sizing: inherit}
 
 article, aside, figure, footer, header, nav, section {display: block}
-button {background: rgba(255, 255, 255, 0); border: medium none}
 ol {list-style-position: inside}
 strong, b {font-weight: 700}
 td {vertical-align: middle}
 table {border-spacing: 0}
 mark {background: none}
 ul {list-style: none}
-
 img {
   height: auto;
   display: block;
   max-width: 100%;
 }
-
 a {
   color: blue;
   outline: 0 none;
   text-decoration: none;
+  transition: all 0.3s ease;
+}
+button {
+  border: medium none;
+  background: rgba(255, 255, 255, 0);
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
@@ -126,5 +129,6 @@ footer {
 }
 
 .todo_list__filter.is_active {
-  border: 1px solid #000;
+  color: #fff;
+  background-color: #000;
 }

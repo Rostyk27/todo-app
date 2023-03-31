@@ -8,6 +8,7 @@ export default function ToDoList() {
   const [thisId, setThisId] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [currentFilter, setCurrentFilter] = useState('all');
+  const [filteredItems, setFilteredItems] = useState([]);
 
   function handleSubmitForm(e) {
     e.preventDefault();
@@ -23,16 +24,6 @@ export default function ToDoList() {
 
   function handleFilterItems(filter) {
     setCurrentFilter(filter);
-  }
-
-  function filteredItems() {
-    if (currentFilter === 'active') {
-      return items.filter(item => !item.completed);
-    } else if (currentFilter === 'completed') {
-      return items.filter(item => item.completed);
-    } else {
-      return items;
-    }
   }
 
   function updateItemProp(id, propName, propValue) {
@@ -60,8 +51,18 @@ export default function ToDoList() {
   }
 
   useEffect(() => {
-    console.log(items);
-  });
+    if (currentFilter === 'active') {
+      setFilteredItems(items.filter(item => !item.completed));
+    } else if (currentFilter === 'completed') {
+      setFilteredItems(items.filter(item => item.completed));
+    } else {
+      setFilteredItems(items);
+    }
+  }, [items, currentFilter]);
+
+  useEffect(() => {
+    console.log(filteredItems);
+  }, [filteredItems]);
 
   return (
     <div className="todo_list__wrapper">
@@ -69,13 +70,16 @@ export default function ToDoList() {
         <div className="todo_list__body">
           <ToDoListForm onSubmitForm={handleSubmitForm} />
 
-          {items.length !== 0 && (
-            <ToDoListFilter onFilterItems={handleFilterItems} />
+          {items.length > 0 && (
+            <ToDoListFilter
+              currentFilter={currentFilter}
+              onFilterItems={handleFilterItems}
+            />
           )}
 
           {isSubmitted && (
             <ul className="todo_list__items">
-              {filteredItems().map(item => (
+              {filteredItems.map(item => (
                 <ToDoListItem
                   key={item.id}
                   useId={item.id}

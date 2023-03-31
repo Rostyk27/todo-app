@@ -1,13 +1,10 @@
 import ToDoListFilterItem from './ToDoListFilterItem';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
-export default function ToDoListFilter({ onFilterItems }) {
-  const [activeFilter, setActiveFilter] = useState('all');
-
+export default function ToDoListFilter({ currentFilter, onFilterItems }) {
   const filters = ['all', 'active', 'completed'];
 
   function handleFilterChange(filter) {
-    setActiveFilter(filter);
     window.location.hash = filter;
     onFilterItems(filter);
   }
@@ -15,21 +12,20 @@ export default function ToDoListFilter({ onFilterItems }) {
   useEffect(() => {
     const hashFilter = window.location.hash.replace('#', '');
     if (filters.includes(hashFilter)) {
-      setActiveFilter(hashFilter);
       onFilterItems(hashFilter);
     }
-  }, []);
+  });
 
   return (
-    <ul className="todo_list__filters">
+    <div className="todo_list__filters">
       {filters.map(filter => (
         <ToDoListFilterItem
           key={filter}
-          status={filter}
-          isActive={activeFilter === filter}
+          name={filter}
+          isActive={currentFilter === filter}
           onFilterChange={handleFilterChange}
         />
       ))}
-    </ul>
+    </div>
   );
 }

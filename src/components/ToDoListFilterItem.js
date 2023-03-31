@@ -1,19 +1,10 @@
-export default function ToDoListFilterItem({
-  status,
-  isActive,
-  onFilterChange,
-}) {
+export default function ToDoListFilterItem({ name, isActive, onFilterChange }) {
   return (
-    <li className={`todo_list__filter${isActive ? ' is_active' : ''}`}>
-      <a
-        href="#"
-        onClick={e => {
-          e.preventDefault();
-          onFilterChange(status);
-        }}
-      >
-        {status}
-      </a>
-    </li>
+    <button
+      className={`todo_list__filter${isActive ? ' is_active' : ''}`}
+      onClick={() => onFilterChange(name)}
+    >
+      {name}
+    </button>
   );
 }
