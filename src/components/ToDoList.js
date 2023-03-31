@@ -7,7 +7,7 @@ export default function ToDoList() {
   const [items, setItems] = useState([]);
   const [thisId, setThisId] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [currentFilter, setCurrentFilter] = useState(null);
+  const [currentFilter, setCurrentFilter] = useState('all');
 
   function handleSubmitForm(e) {
     e.preventDefault();
@@ -26,10 +26,12 @@ export default function ToDoList() {
   }
 
   function filteredItems() {
-    if (currentFilter === null) {
-      return items;
+    if (currentFilter === 'active') {
+      return items.filter(item => !item.completed);
+    } else if (currentFilter === 'completed') {
+      return items.filter(item => item.completed);
     } else {
-      return items.filter(item => item.completed === currentFilter);
+      return items;
     }
   }
 
