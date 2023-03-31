@@ -1,5 +1,5 @@
 export default function ToDoListItem({
-  useId,
+  id,
   value,
   completed,
   onValueChange,
@@ -13,7 +13,7 @@ export default function ToDoListItem({
           type="checkbox"
           checked={completed}
           onChange={e => {
-            onStatusChange(useId, e.target.checked);
+            onStatusChange(id, e.target.checked);
           }}
         />
       </label>
@@ -22,8 +22,9 @@ export default function ToDoListItem({
         <input
           type="text"
           value={value}
+          disabled={completed}
           onChange={e => {
-            onValueChange(useId, e.target.value);
+            onValueChange(id, e.target.value);
           }}
         />
         <span></span>
@@ -32,7 +33,7 @@ export default function ToDoListItem({
       <button
         type="button"
         className="todo_list__item__delete material-icons"
-        onClick={() => onItemDelete(useId)}
+        onClick={() => onItemDelete(id)}
       >
         close
       </button>

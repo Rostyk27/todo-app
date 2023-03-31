@@ -130,5 +130,5 @@ footer {
 
 .todo_list__filter.is_active {
   color: #fff;
-  background-color: #000;
+  background-color: blue;
 }
