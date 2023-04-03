@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './style/style.scss';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
+
+// control :focus when using mouse/keyboard
+document.body.addEventListener('mousedown', function () {
+  document.body.classList.add('is_using_mouse');
+});
+document.body.addEventListener('keydown', function () {
+  document.body.classList.remove('is_using_mouse');
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

@@ -1,0 +1,50 @@
+// todo-list
+
+.todo_list {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  &__wrapper {
+    margin-bottom: 7vh;
+  }
+
+  &__filters {
+    display: flex;
+    margin: 10px -8px;
+  }
+
+  &__filter {
+    margin: 0 8px;
+
+    &.is_active {
+      color: #fff;
+      background-color: $cl2;
+    }
+  }
+
+  &__item {
+    margin: 5px 0;
+
+    &__delete {
+      margin-left: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      @include hover {
+        color: red;
+      }
+    }
+  }
+
+  &__actions {
+    &__clear {
+      display: inline-block;
+
+      &.is_hidden {
+        display: none;
+      }
+    }
+  }
+}
