@@ -7,8 +7,8 @@ export default function ToDoListItem({
   onItemDelete,
 }) {
   return (
-    <li className="todo_list__item" data-completed={completed}>
-      <label className="todo_list__item__checkbox">
+    <li className={`todo_list__item${completed ? ' is_completed' : ''}`}>
+      <label className="todo_list__item__check">
         <input
           type="checkbox"
           checked={completed}
@@ -27,7 +27,6 @@ export default function ToDoListItem({
             onValueChange(id, e.target.value);
           }}
         />
-        <span></span>
       </label>
 
       <button

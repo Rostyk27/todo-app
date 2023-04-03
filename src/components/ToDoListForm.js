@@ -7,11 +7,10 @@ export default function ToDoListForm({
   return (
     <form className="todo_list__form" onSubmit={onSubmitForm}>
       <label
-        className={`todo_list__form_check${!isAnyItems ? ' is_hidden' : ''}`}
+        className={`todo_list__form__check${!isAnyItems ? ' is_hidden' : ''}`}
       >
         <input
           type="checkbox"
-          name="toggle_list"
           disabled={!isAnyItems}
           checked={activeCount === 0 && isAnyItems}
           onChange={e => {
@@ -20,7 +19,7 @@ export default function ToDoListForm({
         />
       </label>
 
-      <label className="todo_list__form_input">
+      <label className="todo_list__form__input">
         <input
           type="text"
           name="create_list_item"

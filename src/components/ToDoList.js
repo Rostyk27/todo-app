@@ -95,7 +95,7 @@ export default function ToDoList() {
   return (
     <div className="todo_list__wrapper">
       <div className="container is_smaller">
-        <div className="todo_list__body">
+        <div className="todo_list">
           <ToDoListForm
             onSubmitForm={handleSubmitForm}
             onToggleAll={handleToggleAll}
