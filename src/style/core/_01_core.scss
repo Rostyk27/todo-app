@@ -11,7 +11,7 @@ html {
 
 body {
   color: $tx;
-  background-color: #f9f9f9;
+  background-color: $bg2;
 }
 
 #root {
@@ -32,6 +32,6 @@ body {
   position: relative;
 
   &.is_smaller {
-    width: 600px;
+    width: 540px;
   }
 }

@@ -16,7 +16,7 @@ export default function ToDoListActions({
       <span className="todo_list__actions__count">{activeMessage}</span>
 
       <button
-        className={`todo_list__actions__clear${
+        className={`todo_list__actions__clear button${
           completedCount === 0 ? ' is_hidden' : ''
         }`}
         onClick={onClearCompleted}

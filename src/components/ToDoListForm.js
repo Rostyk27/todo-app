@@ -7,7 +7,9 @@ export default function ToDoListForm({
   return (
     <form className="todo_list__form" onSubmit={onSubmitForm}>
       <label
-        className={`todo_list__form__check${!isAnyItems ? ' is_hidden' : ''}`}
+        className={`todo_list__form__check check_element${
+          !isAnyItems ? ' is_hidden' : ''
+        }${activeCount === 0 && isAnyItems ? ' is_checked' : ''}`}
       >
         <input
           type="checkbox"
@@ -17,13 +19,15 @@ export default function ToDoListForm({
             onToggleAll(e.target.checked);
           }}
         />
+
+        <span className="material-icons">check</span>
       </label>
 
       <label className="todo_list__form__input">
         <input
           type="text"
           name="create_list_item"
-          placeholder="I'm going to..."
+          placeholder="Write a new task here"
         />
       </label>
     </form>

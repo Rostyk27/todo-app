@@ -2,17 +2,60 @@
 
 .todo_list {
   padding: 20px;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: $bg;
+  box-shadow: 0 0 10px $shadow;
 
   &__wrapper {
     margin-bottom: 7vh;
   }
 
+  &__form {
+    display: flex;
+    position: relative;
+
+    &__check {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+
+      &.is_checked {
+        span {
+          color: #fff;
+          background-color: $cl2;
+        }
+      }
+
+      &.is_hidden {
+        pointer-events: none;
+
+        span {
+          opacity: 0;
+        }
+      }
+    }
+
+    &__input {
+      flex: 1;
+
+      input[type='text'] {
+        font-weight: 700;
+        color: rgba($tx, 0.9);
+        padding: 0 48px;
+        border-radius: 16px;
+
+        @include placeholder {
+          font-weight: 700;
+          color: rgba($tx, 0.25);
+        }
+      }
+    }
+  }
+
   &__filters {
     display: flex;
-    margin: 10px -8px;
+    margin: 20px -8px 15px;
   }
 
   &__filter {
@@ -25,20 +68,58 @@
   }
 
   &__item {
-    margin: 5px 0;
+    display: flex;
+    margin: 10px 0;
+
+    &.is_completed {
+      .todo_list__item__check span {
+        color: #fff;
+        background-color: $cl2;
+      }
+    }
+
+    &__text {
+      flex: 1;
+
+      input[type='text'] {
+        font-weight: 400;
+
+        &[disabled] {
+          color: $bg;
+          background-color: #fff;
+        }
+      }
+    }
 
     &__delete {
-      margin-left: 10px;
+      @extend %flex_center;
+      width: 48px;
+      font-size: 20px;
+      background-color: #fff;
+      border-radius: 0 16px 16px 0;
       cursor: pointer;
-      transition: all 0.3s ease;
+      position: relative;
+
+      span {
+        @extend %ani;
+      }
 
       @include hover {
-        color: red;
+        span {
+          color: rgb(255, 50, 100);
+        }
       }
     }
   }
 
   &__actions {
+    margin-top: 20px;
+
+    &__count {
+      font-size: 15px;
+      line-height: 30px;
+    }
+
     &__clear {
       display: inline-block;
 
@@ -46,5 +127,13 @@
         display: none;
       }
     }
+  }
+
+  input[type='text'] {
+    height: 48px;
+    font-size: 16px;
+    font-family: $ff;
+    letter-spacing: 0.01em;
+    border: none;
   }
 }
