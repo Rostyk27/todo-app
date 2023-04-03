@@ -4,7 +4,7 @@
   padding: 20px;
   border-radius: 8px;
   background-color: $bg;
-  box-shadow: 0 0 10px $shadow;
+  box-shadow: 0 0 10px rgba($tx, 0.1);
 
   &__wrapper {
     margin-bottom: 7vh;
@@ -23,7 +23,7 @@
       &.is_checked {
         span {
           color: #fff;
-          background-color: $cl2;
+          background-color: $cl;
         }
       }
 
@@ -63,7 +63,7 @@
 
     &.is_active {
       color: #fff;
-      background-color: $cl2;
+      background-color: $cl;
     }
   }
 
@@ -74,7 +74,7 @@
     &.is_completed {
       .todo_list__item__check span {
         color: #fff;
-        background-color: $cl2;
+        background-color: $cl;
       }
     }
 
