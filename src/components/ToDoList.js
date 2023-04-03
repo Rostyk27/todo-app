@@ -6,15 +6,16 @@ import { useState, useEffect } from 'react';
 
 export default function ToDoList() {
   const savedItems = JSON.parse(localStorage.getItem('todo-items'));
-  const isSaved = savedItems.length > 0;
-  const [items, setItems] = useState(() => (isSaved ? savedItems : []));
+  const isSavedItems = savedItems.length > 0;
+  const [items, setItems] = useState(() => (isSavedItems ? savedItems : []));
   const [currentId, setCurrentId] = useState(() =>
-    isSaved ? savedItems[savedItems.length - 1].id + 1 : 0
+    isSavedItems ? savedItems[savedItems.length - 1].id + 1 : 0
   );
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [currentFilter, setCurrentFilter] = useState('all');
   const [filteredItems, setFilteredItems] = useState([]);
   const [activeCount, setActiveCount] = useState(0);
+  const [completedCount, setCompletedCount] = useState(0);
 
   useEffect(() => {
     localStorage.setItem('todo-items', JSON.stringify(items));
@@ -32,7 +33,8 @@ export default function ToDoList() {
 
   useEffect(() => {
     setActiveCount(items.filter(item => !item.completed).length);
-  }, [items]);
+    setCompletedCount(items.length - activeCount);
+  }, [items, activeCount]);
 
   function handleSubmitForm(e) {
     e.preventDefault();
@@ -43,6 +45,14 @@ export default function ToDoList() {
       setCurrentId(currentId + 1);
       setItems([...items, { id: currentId, value: current, completed: false }]);
       e.target.create_list_item.value = '';
+    }
+  }
+
+  function handleToggleAll(isChecked) {
+    if (isChecked) {
+      setItems(items.map(item => ({ ...item, completed: true })));
+    } else {
+      setItems(items.map(item => ({ ...item, completed: false })));
     }
   }
 
@@ -80,20 +90,27 @@ export default function ToDoList() {
     setItems(items.filter(item => !item.completed));
   }
 
+  const isAnyItems = items.length > 0;
+
   return (
     <div className="todo_list__wrapper">
       <div className="container is_smaller">
         <div className="todo_list__body">
-          <ToDoListForm onSubmitForm={handleSubmitForm} />
+          <ToDoListForm
+            onSubmitForm={handleSubmitForm}
+            onToggleAll={handleToggleAll}
+            activeCount={activeCount}
+            isAnyItems={isAnyItems}
+          />
 
-          {items.length > 0 && (
+          {isAnyItems && (
             <ToDoListFilter
               currentFilter={currentFilter}
               onFilterItems={handleFilterItems}
             />
           )}
 
-          {(isSubmitted || isSaved) && items.length > 0 && (
+          {(isSubmitted || isSavedItems) && isAnyItems && (
             <ul className="todo_list__items">
               {filteredItems.map(item => (
                 <ToDoListItem
@@ -109,9 +126,10 @@ export default function ToDoList() {
             </ul>
           )}
 
-          {items.length > 0 && (
+          {isAnyItems && (
             <ToDoListActions
               activeCount={activeCount}
+              completedCount={completedCount}
               onClearCompleted={handleClearCompleted}
             />
           )}

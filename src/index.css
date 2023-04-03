@@ -132,3 +132,11 @@ footer {
   color: #fff;
   background-color: blue;
 }
+
+.todo_list__actions__clear {
+  display: inline-block;
+}
+
+.todo_list__actions__clear.is_hidden {
+  display: none;
+}

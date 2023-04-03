@@ -1,7 +1,26 @@
-export default function ToDoListForm({ onSubmitForm }) {
+export default function ToDoListForm({
+  onSubmitForm,
+  onToggleAll,
+  activeCount,
+  isAnyItems,
+}) {
   return (
     <form className="todo_list__form" onSubmit={onSubmitForm}>
-      <label>
+      <label
+        className={`todo_list__form_check${!isAnyItems ? ' is_hidden' : ''}`}
+      >
+        <input
+          type="checkbox"
+          name="toggle_list"
+          disabled={!isAnyItems}
+          checked={activeCount === 0 && isAnyItems}
+          onChange={e => {
+            onToggleAll(e.target.checked);
+          }}
+        />
+      </label>
+
+      <label className="todo_list__form_input">
         <input
           type="text"
           name="create_list_item"

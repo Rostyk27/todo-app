@@ -1,4 +1,8 @@
-export default function ToDoListActions({ activeCount, onClearCompleted }) {
+export default function ToDoListActions({
+  activeCount,
+  completedCount,
+  onClearCompleted,
+}) {
   let activeMessage;
 
   if (activeCount === 0) {
@@ -11,7 +15,12 @@ export default function ToDoListActions({ activeCount, onClearCompleted }) {
     <div className="todo_list__actions flex">
       <span className="todo_list__actions__count">{activeMessage}</span>
 
-      <button className="todo_list__actions__clear" onClick={onClearCompleted}>
+      <button
+        className={`todo_list__actions__clear${
+          completedCount === 0 ? ' is_hidden' : ''
+        }`}
+        onClick={onClearCompleted}
+      >
         Clear completed
       </button>
     </div>
