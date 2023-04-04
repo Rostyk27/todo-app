@@ -109,6 +109,8 @@ export default function ToDoList() {
             <ToDoListFilter
               currentFilter={currentFilter}
               onFilterItems={handleFilterItems}
+              activeCount={activeCount}
+              completedCount={completedCount}
             />
           )}
 

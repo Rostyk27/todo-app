@@ -76,11 +76,19 @@
   }
 
   &__filter {
+    display: flex;
+    align-items: center;
     margin: 0 8px;
 
     &.is_active {
       color: #fff;
       background-color: $cl;
+    }
+
+    span {
+      min-width: 18px;
+      margin-left: 1px;
+      text-align: center;
     }
   }
 

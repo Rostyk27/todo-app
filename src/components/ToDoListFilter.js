@@ -1,7 +1,12 @@
 import ToDoListFilterItem from './ToDoListFilterItem';
 import { useEffect } from 'react';
 
-export default function ToDoListFilter({ currentFilter, onFilterItems }) {
+export default function ToDoListFilter({
+  activeCount,
+  completedCount,
+  currentFilter,
+  onFilterItems,
+}) {
   const filters = ['all', 'active', 'completed'];
 
   function handleFilterChange(filter) {
@@ -24,6 +29,8 @@ export default function ToDoListFilter({ currentFilter, onFilterItems }) {
           name={filter}
           isActive={currentFilter === filter}
           onFilterChange={handleFilterChange}
+          activeCount={activeCount}
+          completedCount={completedCount}
         />
       ))}
     </div>
