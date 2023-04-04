@@ -1,5 +1,6 @@
 {
   "name": "todo-app",
+  "homepage": "https://todo.rostyk.dev",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
