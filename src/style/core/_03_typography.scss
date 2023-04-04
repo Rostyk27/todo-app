@@ -30,7 +30,7 @@ sub {
 
 .content h1 {
   font-size: 24px;
-  margin-bottom: 3vh;
+  margin-bottom: 4vh;
   @include rwd-min(1025) {
     font-size: 36px;
   }
