@@ -73,3 +73,18 @@ sub {
     }
   }
 }
+
+.button_element {
+  @extend %flex_center;
+  width: 48px;
+  font-size: 20px;
+  background-color: #fff;
+  border-radius: 0 16px 16px 0;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  span {
+    @extend %ani;
+  }
+}

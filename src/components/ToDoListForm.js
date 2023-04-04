@@ -30,6 +30,10 @@ export default function ToDoListForm({
           placeholder="Write a new task here"
         />
       </label>
+
+      <button type="submit" className="todo_list__form__submit button_element">
+        <span className="material-icons">add</span>
+      </button>
     </form>
   );
 }

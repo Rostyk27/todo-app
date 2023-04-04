@@ -55,6 +55,19 @@
         }
       }
     }
+
+    &__submit {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+
+      @include hover {
+        span {
+          color: rgb(57, 186, 55);
+        }
+      }
+    }
   }
 
   &__filters {
@@ -97,19 +110,6 @@
     }
 
     &__delete {
-      @extend %flex_center;
-      width: 48px;
-      font-size: 20px;
-      background-color: #fff;
-      border-radius: 0 16px 16px 0;
-      cursor: pointer;
-      user-select: none;
-      position: relative;
-
-      span {
-        @extend %ani;
-      }
-
       @include hover {
         span {
           color: rgb(255, 50, 100);

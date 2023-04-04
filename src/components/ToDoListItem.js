@@ -33,7 +33,7 @@ export default function ToDoListItem({
 
       <button
         type="button"
-        className="todo_list__item__delete"
+        className="todo_list__item__delete button_element"
         onClick={() => onItemDelete(id)}
       >
         <span className="material-icons">close</span>
