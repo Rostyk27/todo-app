@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 export default function ToDoListItem({
   id,
   value,
@@ -6,9 +8,19 @@ export default function ToDoListItem({
   onStatusChange,
   onItemDelete,
 }) {
+  const [validationMessage, setValidationMessage] = useState('');
+
+  useEffect(() => {
+    if (value === '') {
+      setValidationMessage(`Active task can't be empty!`);
+    } else {
+      setValidationMessage('');
+    }
+  }, [value]);
+
   return (
     <li className={`todo_list__item${completed ? ' is_completed' : ''}`}>
-      <label className="todo_list__item__check check_element">
+      <label className="todo_list__item__check check_element icon_element">
         <input
           type="checkbox"
           checked={completed}
@@ -33,11 +45,15 @@ export default function ToDoListItem({
 
       <button
         type="button"
-        className="todo_list__item__delete button_element"
+        className="todo_list__item__delete button_element icon_element"
         onClick={() => onItemDelete(id)}
       >
         <span className="material-icons">close</span>
       </button>
+
+      {validationMessage.length > 0 && !completed && (
+        <span className="todo_list__item__error">{validationMessage}</span>
+      )}
     </li>
   );
 }

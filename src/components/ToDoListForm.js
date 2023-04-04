@@ -7,7 +7,7 @@ export default function ToDoListForm({
   return (
     <form className="todo_list__form" onSubmit={onSubmitForm}>
       <label
-        className={`todo_list__form__check check_element${
+        className={`todo_list__form__check check_element icon_element${
           !isAnyItems ? ' is_hidden' : ''
         }${activeCount === 0 && isAnyItems ? ' is_checked' : ''}`}
       >
@@ -31,7 +31,10 @@ export default function ToDoListForm({
         />
       </label>
 
-      <button type="submit" className="todo_list__form__submit button_element">
+      <button
+        type="submit"
+        className="todo_list__form__submit button_element icon_element"
+      >
         <span className="material-icons">add</span>
       </button>
     </form>

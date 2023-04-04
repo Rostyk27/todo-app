@@ -50,18 +50,27 @@ sub {
   font-size: inherit;
 }
 
-.check_element {
+.icon_element {
   @extend %flex_center;
-  width: 48px;
+  position: absolute;
+  top: 1px;
+  width: 47px;
+  height: 46px;
   font-size: 20px;
   background-color: #fff;
-  border-radius: 16px 0 0 16px;
   cursor: pointer;
   user-select: none;
-  position: relative;
 
   span {
     @extend %ani;
+  }
+}
+
+.check_element {
+  left: 1px;
+  border-radius: 16px 0 0 16px;
+
+  span {
     color: $bg;
     width: 22px;
     height: 22px;
@@ -85,16 +94,6 @@ sub {
 }
 
 .button_element {
-  @extend %flex_center;
-  width: 48px;
-  font-size: 20px;
-  background-color: #fff;
+  right: 1px;
   border-radius: 0 16px 16px 0;
-  cursor: pointer;
-  user-select: none;
-  position: relative;
-
-  span {
-    @extend %ani;
-  }
 }

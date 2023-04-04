@@ -19,11 +19,6 @@
     position: relative;
 
     &__check {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-
       span {
         font-size: 18px;
       }
@@ -61,11 +56,6 @@
     }
 
     &__submit {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-
       @include hover {
         span {
           color: rgb(57, 186, 55);
@@ -107,7 +97,9 @@
 
   &__item {
     display: flex;
+    flex-wrap: wrap;
     margin: 10px 0;
+    position: relative;
 
     &.is_completed {
       .todo_list__item__check span {
@@ -121,6 +113,8 @@
 
       input[type='text'] {
         font-weight: 400;
+        padding: 0 48px;
+        border-radius: 16px;
 
         &[disabled] {
           color: $bg;
@@ -128,6 +122,15 @@
           text-decoration: line-through;
         }
       }
+    }
+
+    &__error {
+      display: block;
+      width: 100%;
+      font-size: 12px;
+      font-weight: 700;
+      color: rgb(255, 50, 100);
+      margin: 5px 0 0 48px;
     }
 
     &__delete {
