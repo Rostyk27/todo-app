@@ -20,7 +20,7 @@ export default function ToDoListForm({
           }}
         />
 
-        <span className="material-icons">check</span>
+        <span className="material-icons">done_all</span>
       </label>
 
       <label className="todo_list__form__input">

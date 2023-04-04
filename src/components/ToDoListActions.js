@@ -8,7 +8,7 @@ export default function ToDoListActions({
   if (activeCount === 0) {
     activeMessage = `All done!`;
   } else {
-    activeMessage = `${activeCount} item${activeCount !== 1 ? 's' : ''} left`;
+    activeMessage = `${activeCount} task${activeCount !== 1 ? 's' : ''} left`;
   }
 
   return (

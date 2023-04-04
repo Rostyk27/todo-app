@@ -20,6 +20,10 @@
       left: 0;
       bottom: 0;
 
+      span {
+        font-size: 18px;
+      }
+
       &.is_checked {
         span {
           color: #fff;
@@ -99,6 +103,7 @@
       background-color: #fff;
       border-radius: 0 16px 16px 0;
       cursor: pointer;
+      user-select: none;
       position: relative;
 
       span {

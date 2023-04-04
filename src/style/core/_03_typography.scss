@@ -1,4 +1,4 @@
-// style guide
+// typography
 
 .button {
   @extend %ani;
@@ -47,12 +47,16 @@ sub {
   background-color: #fff;
   border-radius: 16px 0 0 16px;
   cursor: pointer;
+  user-select: none;
   position: relative;
 
   span {
     @extend %ani;
     color: $bg;
+    width: 22px;
+    height: 22px;
     padding: 1px;
+    text-align: center;
     border-radius: 6px;
     background-color: $bg;
   }
