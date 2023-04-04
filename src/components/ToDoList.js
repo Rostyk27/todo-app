@@ -5,7 +5,9 @@ import ToDoListActions from './ToDoListActions';
 import { useState, useEffect } from 'react';
 
 export default function ToDoList() {
-  const savedItems = JSON.parse(localStorage.getItem('todo-items'));
+  const savedItems = localStorage.getItem('todo-items')
+    ? JSON.parse(localStorage.getItem('todo-items'))
+    : [];
   const isSavedItems = savedItems.length > 0;
   const [items, setItems] = useState(() => (isSavedItems ? savedItems : []));
   const [currentId, setCurrentId] = useState(() =>
