@@ -1,10 +1,14 @@
 // todo-list
 
 .todo_list {
-  padding: 20px;
+  padding: 20px 15px;
   border-radius: 8px;
   background-color: $bg;
   box-shadow: 0 0 10px rgba($tx, 0.1);
+
+  @include rwd-min(768) {
+    padding: 20px;
+  }
 
   &__wrapper {
     margin-bottom: 10vh;
@@ -72,13 +76,22 @@
 
   &__filters {
     display: flex;
-    margin: 20px -8px 15px;
+    margin: 20px -6px 15px;
+
+    @include rwd-min(768) {
+      margin-left: -8px;
+      margin-right: -8px;
+    }
   }
 
   &__filter {
     display: flex;
     align-items: center;
-    margin: 0 8px;
+    margin: 0 6px;
+
+    @include rwd-min(768) {
+      margin: 0 8px;
+    }
 
     &.is_active {
       color: #fff;
