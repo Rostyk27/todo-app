@@ -4,4 +4,12 @@ footer {
   color: #fff;
   padding: 30px 0;
   background-color: $cl;
+
+  a {
+    color: #fff;
+
+    &:hover {
+      color: $cl2;
+    }
+  }
 }

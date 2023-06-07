@@ -97,3 +97,13 @@ sub {
   right: 0;
   border-radius: 0 16px 16px 0;
 }
+
+.custom_icon {
+  font-size: 24px;
+  margin-left: 4px;
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+  }
+}
